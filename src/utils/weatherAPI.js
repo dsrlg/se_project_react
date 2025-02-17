@@ -10,29 +10,26 @@ export const getWeather = ({ longitude, latitude }, APIkey) => {
   });
 };
 
-export const filterWeatherData = (data) =>{
+export const filterWeatherData = (data) => {
   const result = {};
-  result.city=data.name;
-  result.temp = {F:data.main.temp};
-  result.type= getWeatherType(result.temp.F);
-  result.condition=data.weather[0].main.toLowerCase(); // used () after toLowerCase because it is a function
+  result.city = data.name;
+  result.temp = { F: data.main.temp };
+  result.type = getWeatherType(result.temp.F);
+  result.condition = data.weather[0].main.toLowerCase(); // used () after toLowerCase because it is a function
   result.isDay = isDay(data.sys, Date.now()); // used isDay with D in uppercase because it is how you call it in weatherCard
   return result;
 };
 
-const isDay=({sunrise, sunset}, now)=>{
-
-return sunrise * 1000 < now && now < sunset*1000;
+const isDay = ({ sunrise, sunset }, now) => {
+  return sunrise * 1000 < now && now < sunset * 1000;
 };
 
- const getWeatherType=(temperature) =>{
+const getWeatherType = (temperature) => {
   if (temperature >= 86) {
-    return 'hot';
-  } else if (temperature >= 66 && temperature< 86) {
-    return 'warm';
+    return "hot";
+  } else if (temperature >= 66 && temperature < 86) {
+    return "warm";
   } else {
-    return 'cold';
+    return "cold";
   }
-  
-
-}
+};

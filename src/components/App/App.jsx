@@ -53,6 +53,7 @@ getWeather(coordiantes, APIkey)
         titleText="New garment"
         activeModal={activeModal}
         handleCloseClick={closeActiveModal}
+        isOpen={activeModal === "add-garment"}
       >
         <label htmlFor="name" className="modal__label">
           Name{" "}
@@ -76,23 +77,25 @@ getWeather(coordiantes, APIkey)
           <legend className="modal__legend">Select the weather type:</legend>
           <label
             htmlFor="Hot"
+           
             className="modal__label modal__label__type_radio"
           >
-            <input type="radio" className="modal__radio-input" />
+            <input id="Hot"  name="weatherRadioButton" type="radio" className="modal__radio-input" />
             Hot
           </label>
           <label
             htmlFor="Warm"
             className="modal__label modal__label__type_radio"
           >
-            <input id="Warm" type="radio" className="modal__radio-input" />
+            <input id="Warm"   name="weatherRadioButton" type="radio" className="modal__radio-input" />
             Warm
           </label>
           <label
             htmlFor="Cold"
+           
             className="modal__label modal__label__type_radio"
           >
-            <input id="Cold" type="radio" className="modal__radio-input" />
+            <input   name="weatherRadioButton" id="Cold" type="radio" className="modal__radio-input" />
             Cold
           </label>
         </fieldset>

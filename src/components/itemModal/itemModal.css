@@ -24,11 +24,11 @@
 .modal__caption {
   border-radius: 16px;
   margin: 0;
-  font-family: "Cabinet Grotesk", 'Times New Roman', Times, serif;
+  font-family: "Cabinet Grotesk", "Times New Roman", Times, serif;
 }
 .modal__weather {
   gap: 12px;
-  font-family: "Cabinet Grotesk", 'Times New Roman', Times, serif;
+  font-family: "Cabinet Grotesk", "Times New Roman", Times, serif;
   font-weight: 700;
   font-size: 20px;
   line-height: 24px;
@@ -37,8 +37,8 @@
   padding: 20px 32px 32px 32px;
   background: white;
 }
-.modal__close{
-  background:  url("/src/assets/Union.png") center no-repeat;
+.modal__close {
+  background: url("/src/assets/Union.png") center no-repeat;
   cursor: pointer;
   width: 20px;
   height: 20px;
