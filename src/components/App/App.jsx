@@ -7,8 +7,7 @@ import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import ItemModal from "../ItemModal/ItemModal";
 import { getWeather, filterWeatherData } from "../../utils/weatherAPI";
 import { coordiantes, APIkey } from "../../utils/constants";
-
-
+import Footer from "../Footer/Footer";
 
 function App() {
   const [weatherData, setWeatherData] = useState(
@@ -17,7 +16,7 @@ function App() {
     temp:{F: 999},
     city:"",
   });
-  const [activeModal, setAciveModal] = useState("preview");
+  const [activeModal, setAciveModal] = useState("");
   const [selectCard, setSelectCard] = useState({});
 
   const handleCardClick = (card) => {
@@ -65,12 +64,12 @@ getWeather(coordiantes, APIkey)
           />
         </label>
         <label htmlFor="imageUrl" className="modal__label">
-          image{" "}
+          Image{" "}
           <input
             type="text"
             className="modal__input"
             id="imageUrl"
-            placeholder="imageUrl"
+            placeholder="ImageUrl"
           />
         </label>
         <fieldset className="modal__radio-buttons">
@@ -103,6 +102,7 @@ getWeather(coordiantes, APIkey)
         card={selectCard}
         handleCloseClick={closeActiveModal}
       />
+      <Footer></Footer>
     </div>
   );
 }
