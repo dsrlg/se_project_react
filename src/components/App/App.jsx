@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import "./App.css";
 //import { Route, Routes } from "react-router-dom";
 //import currentTemperatureUnit from "../../contexts/currentTemperatureUnitContext.js";
+import CurrentTemperatureUnitContext from "../../contexts/CurrentTemperatureUnitContext.jsx";
 import Header from "../Header/Header";
 import Main from "../Main/Main";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
@@ -16,11 +17,14 @@ function App() {
   const [currentTemperatureUnit, setCurrentTemperatureUnit] = useState("F");
   const [weatherData, setWeatherData] = useState({
     type: "cold",
-    temp: { F: 999 },
+    temp: { F: 999, C:999 },
     city: "",
+    condition: "",
+    isDay: false,
   });
   const [activeModal, setAciveModal] = useState("");
   const [selectCard, setSelectCard] = useState({});
+  
 
   const handleCardClick = (card) => {
     setAciveModal("preview");
@@ -35,11 +39,11 @@ function App() {
     setAciveModal("");
   };
 
-  // const handleToggleSwitchChange = () => {
-  //   currentTemperatureUnit === "F"
-  //     ? setCurrentTemperatureUnit("C")
-  //     : setCurrentTemperatureUnit("F");
-  // };
+  const handleToggleSwitchChange = () => {
+    currentTemperatureUnit === "F"
+      ? setCurrentTemperatureUnit("C")
+      : setCurrentTemperatureUnit("F");
+  };
 
   useEffect(() => {
     getWeather(coordiantes, APIkey)
@@ -52,9 +56,9 @@ function App() {
 
   return (
     <div className="page">
-      {/* <currentTemperatureUnitContext.Provider
+      <CurrentTemperatureUnitContext.Provider
         value={{ currentTemperatureUnit, handleToggleSwitchChange }}
-      > */}
+      >
         <div className="page__content">
           <Header handleAddClick={handleAddClick} weatherData={weatherData} />
           <Main weatherData={weatherData} handleCardClick={handleCardClick} />
@@ -130,7 +134,7 @@ function App() {
           handleCloseClick={closeActiveModal}
         />
         <Footer></Footer>
-      {/* </currentTemperatureUnitContext.Provider> */}
+      </CurrentTemperatureUnitContext.Provider>
     </div>
   );
 }

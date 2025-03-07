@@ -13,7 +13,9 @@ export const getWeather = ({ longitude, latitude }, APIkey) => {
 export const filterWeatherData = (data) => {
   const result = {};
   result.city = data.name;
-  result.temp = { F: data.main.temp };
+  result.temp = {
+     F: Math.round(data.main.temp), 
+     c: Math.round(((data.main.temp-32) * 5)/9)};
   result.type = getWeatherType(result.temp.F);
   result.condition = data.weather[0].main.toLowerCase(); // used () after toLowerCase because it is a function
   result.isDay = isDay(data.sys, Date.now()); // used isDay with D in uppercase because it is how you call it in weatherCard
