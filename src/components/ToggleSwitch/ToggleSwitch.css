@@ -7,6 +7,7 @@
   overflow: hidden;
   position: relative;
   /* left: 218px;*/
+  margin-left: 24px;
 } 
 
 .toggle-switch__checkbox {

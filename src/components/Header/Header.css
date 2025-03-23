@@ -7,7 +7,7 @@
 .header__logo {
   margin-right: 24px;
   height: 40px;
-  width: 40px;
+  width: 89px;
   margin-bottom: 34px;
 }
 
@@ -19,6 +19,8 @@
   font-family: "Cabinet Grotesk", "Times New Roman", Times, serif;
   font-weight: 700;
   margin-right: 380px;
+  margin-left: 24px;
+  line-height: 24px;
 }
 
 .header__nav{
@@ -33,7 +35,7 @@
   line-height: 24px;
   border: none;
   margin-right: 20px;
-  margin-left: 5px;
+  margin-left: 24px;
 }
 
 .header__user {
