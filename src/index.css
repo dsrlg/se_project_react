@@ -8,3 +8,5 @@
 @import url(./components/ModalWithForm/ModalWithForm.css);
 @import url(./components/WeatherCard/weatherCard.css);
 @import url(../src/vendor/fonts.css);
+@import url(./components/SideBar/SideBar.css);
+@import url(./components/ToggleSwitch/ToggleSwitch.css);
