@@ -20,10 +20,10 @@ export default function ClothesSection({
         </button>
       </div>
       <ul className="cards-section__items">
-        {clothingItems.map((filteredCard) => {
+        {clothingItems.map((item) => {
           <ItemCard
-            key={filteredCard._id}
-            card={filteredCard}
+            key={item._id}
+            item={item}
             onCardClick={onCardClick}
           />;
         })}

@@ -7,3 +7,9 @@
     width: 229px;
     height: 56px;
   }
+
+  .profile__clothing-items{
+    display: flex;
+  flex-wrap: wrap;
+  padding: 0;
+  }

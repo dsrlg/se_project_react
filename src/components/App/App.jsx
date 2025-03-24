@@ -75,7 +75,7 @@ function App() {
       ]);
       closeActiveModal();
     })
-    
+    .catch(console.error);
   };
 
   useEffect(() => {
@@ -97,11 +97,19 @@ function App() {
   }, []);
 
   // useEffect(() => {
+  //   fetch('/${baseUrl}/cards') // replace with your data source
+  //     .then(response => response.json())
+  //     .then(data => setCards(data))
+  //     .catch(error => console.error(error));
+  // }, []);
+  
+
+  // useEffect(() => {
   //   api.getCards().then(setCards);
   // }, [])
 
-console.log(cards);
-console.log(clothingItems);
+// console.log(cards);
+// console.log(clothingItems);
 
 
   return (
