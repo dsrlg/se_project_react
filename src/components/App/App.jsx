@@ -64,12 +64,18 @@ function App() {
   };
 
   const handleItemModalSubmit = ({ name, imageUrl, weather }) => {
-    const newId = Math.max(...clothingItems.map((item) => item._id)) + 1;
-    setClothingItems([
-      { name, link: imageUrl, weather, _id: newId },
-      ...clothingItems,
-    ]);
-    closeActiveModal();
+    api.addItem({name, imageUrl, weather})
+    .then((newCard)=>{
+      console.log(newCard);
+      // debugger;
+      // const newId = Math.max(...clothingItems.map((item) => item._id)) + 1;
+      setClothingItems([
+        { name, imageUrl: imageUrl, weather, _id: newCard._id },
+        ...clothingItems,
+      ]);
+      closeActiveModal();
+    })
+    
   };
 
   useEffect(() => {
@@ -93,6 +99,10 @@ function App() {
   // useEffect(() => {
   //   api.getCards().then(setCards);
   // }, [])
+
+console.log(cards);
+console.log(clothingItems);
+
 
   return (
     <div className="page">

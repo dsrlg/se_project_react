@@ -20,15 +20,10 @@ export default  function AddItemModal({handleCloseClick,isOpen, activeModal, onI
   }
 const handleSubmit = (e) =>{
 e.preventDefault();
-onItemModalSubmit({name, imageUrl,weather})
-.then(()=>{
+onItemModalSubmit({name, imageUrl,weather});
 setImageUrl("");
 setName("");
 setWeather("");
-})
-.catch((err)=>{
-  console.error("Error submitting form:", err);
-});
 };
 
 return(
