@@ -24,13 +24,11 @@
   position: absolute;
   top: 20px;
   right: 28px;
-  background: url("../../assets/Union.png") center no-repeat;
-  cursor: pointer;
-  width: 16px;
-  height: 16px;
-  background-color: transparent;
-  background-size: cover;
-  border: none;
+   /* background-color:transparent; */
+  width: 20px;
+  height: 20px;
+ background: url(../../assets/close.png) center no-repeat; 
+ border: none;
 }
 
 .modal__content {

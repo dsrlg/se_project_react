@@ -43,3 +43,17 @@
   width: 20px;
   height: 20px;
 }
+
+.modal__delete_card {
+  top: 20px;  right: 32px;
+  background-color: transparent;
+  background: url("/src/assets/delete.svg");
+  position: absolute;
+  width: 101px;
+  height: 24px;
+  border: none;
+  color: #ff4d00;
+  padding: 0;
+  font-weight: 700;
+  font-size: 20px;
+}

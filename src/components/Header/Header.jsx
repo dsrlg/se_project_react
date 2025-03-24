@@ -9,6 +9,7 @@ function Header({ handleAddClick, weatherData }) {
     month: "long",
     day: "numeric",
   });
+
   return (
     <header className="header">
       <Link to="/">
@@ -18,8 +19,10 @@ function Header({ handleAddClick, weatherData }) {
       <p className="header__date-and-location">
         {currentDate}, {weatherData.city}
       </p>
+
       <ToggleSwitch/>
-      <div className="header__nav">
+
+      {/* <div className="header__nav"> */}
       <button
         onClick={handleAddClick}
         type="button"
@@ -28,12 +31,12 @@ function Header({ handleAddClick, weatherData }) {
         +Add Clothes
       </button>
       <Link to="/profile" className="header__link">
-      <div className="header__user">
-        <p className="header__user-name">Terrence Tegegne</p>
+      <div className="header__user-container">
+        <p className="header__username">Terrence Tegegne</p>
         <img src={avatar} alt=" header avatar" className="header__avatar" />
       </div>
       </Link>
-      </div>
+      {/* </div> */}
     </header>
   );
 }
