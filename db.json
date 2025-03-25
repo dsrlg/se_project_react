@@ -95,6 +95,42 @@
       "imageUrl": "https://www.blackstonefootwear.com/media/89/f7/cb/1728463978/AW24b-category-women-black-boots.jpg?ts=1728482890",
       "weather": "hot",
       "_id": 28
+    },
+    {
+      "name": "Boots",
+      "imageUrl": "https://www.blackstonefootwear.com/media/89/f7/cb/1728463978/AW24b-category-women-black-boots.jpg?ts=1728482890",
+      "weather": "hot",
+      "_id": 29
+    },
+    {
+      "name": "Boots",
+      "imageUrl": "https://www.blackstonefootwear.com/media/89/f7/cb/1728463978/AW24b-category-women-black-boots.jpg?ts=1728482890",
+      "weather": "cold",
+      "_id": 32
+    },
+    {
+      "name": "Boots",
+      "imageUrl": "https://www.blackstonefootwear.com/media/89/f7/cb/1728463978/AW24b-category-women-black-boots.jpg?ts=1728482890",
+      "weather": "cold",
+      "_id": 33
+    },
+    {
+      "_id": 34
+    },
+    {
+      "_id": 35
+    },
+    {
+      "name": "Boots",
+      "imageUrl": "https://www.blackstonefootwear.com/media/89/f7/cb/1728463978/AW24b-category-women-black-boots.jpg?ts=1728482890",
+      "weather": "cold",
+      "_id": 36
+    },
+    {
+      "name": "Boots",
+      "imageUrl": "https://www.blackstonefootwear.com/media/89/f7/cb/1728463978/AW24b-category-women-black-boots.jpg?ts=1728482890",
+      "weather": "cold",
+      "_id": 37
     }
   ]
 }

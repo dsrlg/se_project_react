@@ -1,11 +1,10 @@
 const baseUrl = "http://localhost:3001";
 
 function getItems() {
-  return fetch(`${baseUrl}/items`)
-  .then((res) => checkResponse(res));
+  return fetch(`${baseUrl}/items`).then((res) => checkResponse(res));
 }
 
-function addItem({name, imageUrl, weather}) {
+function addItem({ name, imageUrl, weather }) {
   return fetch(`${baseUrl}/items`, {
     method: "POST",
     headers: {
@@ -25,13 +24,13 @@ function handleDeleteCard(id) {
   }).then((res) => checkResponse(res));
 }
 
-export  function checkResponse(res){
-  if(res.ok){
+export function checkResponse(res) {
+  if (res.ok) {
     return res.json();
   }
   return Promise.reject(`Error:${res.status}`);
 }
 
-const api = { getItems, addItem, handleDeleteCard, checkResponse};
+const api = { getItems, addItem, handleDeleteCard, checkResponse };
 
 export default api;
