@@ -26,7 +26,7 @@ function App() {
     isDay: false,
   });
 
-  const [currentTemperatureUnit, setCurrentTemperatureUnit] = useState("F");
+  const [currentTemperatureUnit, setCurrentTemperatureUnit] = useState('F');
   const [clothingItems, setClothingItems] = useState([]);
   const [activeModal, setAciveModal] = useState("");
   const [selectCard, setSelectCard] = useState({});
@@ -127,7 +127,7 @@ function App() {
                   weatherData={weatherData}
                   handleCardClick={handleCardClick}
                   clothingItems={clothingItems}
-                  currentTemperatureUnit={currentTemperatureUnit}
+                  // CurrentTemperatureUnit={CurrentTemperatureUnit}
                   handleAddClick={handleAddClick}
                 />
               }

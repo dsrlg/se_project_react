@@ -2,9 +2,7 @@ const baseUrl = "http://localhost:3001";
 
 function getItems() {
   return fetch(`${baseUrl}/items`)
-  .then((res) => {
-    return res.ok ? res.json() : checkResponse(res);
-  });
+  .then((res) => checkResponse(res));
 }
 
 function addItem({name, imageUrl, weather}) {
@@ -27,7 +25,7 @@ function handleDeleteCard(id) {
   }).then((res) => checkResponse(res));
 }
 
-function checkResponse(res){
+export  function checkResponse(res){
   if(res.ok){
     return res.json();
   }

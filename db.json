@@ -71,6 +71,24 @@
       "imageUrl": "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/c7eb6aae-3baf-4502-a15a-8a8ba2759443/WMNS+NIKE+OFFCOURT+SLIDE.png",
       "weather": "hot",
       "_id": 24
+    },
+    {
+      "name": "Boots",
+      "imageUrl": "https://www.blackstonefootwear.com/media/89/f7/cb/1728463978/AW24b-category-women-black-boots.jpg?ts=1728482890",
+      "weather": "hot",
+      "_id": 25
+    },
+    {
+      "name": "Boots",
+      "imageUrl": "https://www.blackstonefootwear.com/media/89/f7/cb/1728463978/AW24b-category-women-black-boots.jpg?ts=1728482890",
+      "weather": "hot",
+      "_id": 26
+    },
+    {
+      "name": "Boots",
+      "imageUrl": "https://www.blackstonefootwear.com/media/89/f7/cb/1728463978/AW24b-category-women-black-boots.jpg?ts=1728482890",
+      "weather": "hot",
+      "_id": 27
     }
   ]
 }

@@ -11,5 +11,7 @@
   .profile__clothing-items{
     display: flex;
   flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: flex-start;
   padding: 0;
   }
