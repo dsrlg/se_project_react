@@ -15,7 +15,7 @@ import ToggleSwitch from "../ToggleSwitch/ToggleSwitch.jsx";
 import AddItemModal from "../AddItemModal/AddItemModal.jsx";
 import { defaultClothingItems } from "../../utils/constants";
 import Profile from "../Profile/Profile.jsx";
-import  api  from "../../utils/api.js";
+import api from "../../utils/api.js";
 
 function App() {
   const [weatherData, setWeatherData] = useState({
@@ -26,15 +26,16 @@ function App() {
     isDay: false,
   });
 
-  const [currentTemperatureUnit, setCurrentTemperatureUnit] = useState('F');
+  const [currentTemperatureUnit, setCurrentTemperatureUnit] = useState("F");
   const [clothingItems, setClothingItems] = useState([]);
   const [activeModal, setAciveModal] = useState("");
   const [selectCard, setSelectCard] = useState({});
   const [cards, setCards] = useState([]);
 
   const handleDeleteClick = (cardId) => {
-    api.handleDeleteCard(cardId)
-    
+    api
+      .handleDeleteCard(cardId)
+
       .then(() => {
         setClothingItems((prevItems) =>
           prevItems.filter((item) => item._id !== cardId)
@@ -64,18 +65,19 @@ function App() {
   };
 
   const handleItemModalSubmit = ({ name, imageUrl, weather }) => {
-    api.addItem({name, imageUrl, weather})
-    .then((newCard)=>{
-      console.log(newCard);
-      // debugger;
-      // const newId = Math.max(...clothingItems.map((item) => item._id)) + 1;
-      setClothingItems([
-        { name, imageUrl: imageUrl, weather, _id: newCard._id },
-        ...clothingItems,
-      ]);
-      closeActiveModal();
-    })
-    .catch(console.error);
+    api
+      .addItem({ name, imageUrl, weather })
+      .then((newCard) => {
+        console.log(newCard);
+        // debugger;
+        // const newId = Math.max(...clothingItems.map((item) => item._id)) + 1;
+        setClothingItems([
+          { name, imageUrl: imageUrl, weather, _id: newCard._id },
+          ...clothingItems,
+        ]);
+        closeActiveModal();
+      })
+      .catch(console.error);
   };
 
   useEffect(() => {
@@ -88,8 +90,8 @@ function App() {
   }, []);
 
   useEffect(() => {
-    api.
-      getItems()
+    api
+      .getItems()
       .then((data) => {
         setClothingItems(data);
       })
@@ -102,15 +104,13 @@ function App() {
   //     .then(data => setCards(data))
   //     .catch(error => console.error(error));
   // }, []);
-  
 
   // useEffect(() => {
   //   api.getCards().then(setCards);
   // }, [])
 
-// console.log(cards);
-// console.log(clothingItems);
-
+  // console.log(cards);
+  // console.log(clothingItems);
 
   return (
     <div className="page">
@@ -135,11 +135,11 @@ function App() {
             <Route
               path="/profile"
               element={
-              <Profile 
-              onCardClick={handleCardClick}
-              clothingItems={clothingItems}
-              handleAddClick={handleAddClick}
-               />
+                <Profile
+                  onCardClick={handleCardClick}
+                  clothingItems={clothingItems}
+                  handleAddClick={handleAddClick}
+                />
               }
             />
           </Routes>
@@ -161,7 +161,6 @@ function App() {
       </CurrentTemperatureUnitContext.Provider>
     </div>
   );
-  
 }
 
 export default App;

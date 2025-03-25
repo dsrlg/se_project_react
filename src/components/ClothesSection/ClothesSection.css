@@ -13,7 +13,7 @@
 .cards-section__items {
   display: flex;
   flex-wrap: wrap;
-  justify-content:center; 
+  justify-content: center;
   margin: 10px;
   padding: 0;
   list-style-type: none;

@@ -24,11 +24,11 @@
   position: absolute;
   top: 20px;
   right: 28px;
-   /* background-color:transparent; */
+  /* background-color:transparent; */
   width: 20px;
   height: 20px;
- background: url(../../assets/close.png) center no-repeat; 
- border: none;
+  background: url(../../assets/close.png) center no-repeat;
+  border: none;
 }
 
 .modal__content {

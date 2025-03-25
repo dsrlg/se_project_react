@@ -3,17 +3,21 @@ import Sidebar from "../SideBar/SideBar";
 import "./Profile.css";
 import ItemCard from "../ItemCard/ItemCard";
 
-export default function Profile({onCardClick, clothingItems, handleAddClick}) {
+export default function Profile({
+  onCardClick,
+  clothingItems,
+  handleAddClick,
+}) {
   return (
     <div className="profile">
       <section className="profile__sidebar">
-        <Sidebar/>
+        <Sidebar />
       </section>
       <section className="profile__clothing-items">
         <ClothesSection
-        onCardClick={onCardClick}
-        clothingItems={clothingItems}
-        handleAddClick={handleAddClick}
+          onCardClick={onCardClick}
+          clothingItems={clothingItems}
+          handleAddClick={handleAddClick}
         />
       </section>
     </div>

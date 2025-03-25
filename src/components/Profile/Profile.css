@@ -1,17 +1,17 @@
 .profile {
-    display: flex;
-  }
-  
-  .profile__sidebar {
-    display: flex;
-    width: 229px;
-    height: 56px;
-  }
+  display: flex;
+}
 
-  .profile__clothing-items{
-    display: flex;
+.profile__sidebar {
+  display: flex;
+  width: 229px;
+  height: 56px;
+}
+
+.profile__clothing-items {
+  display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
   align-items: flex-start;
   padding: 0;
-  }
+}

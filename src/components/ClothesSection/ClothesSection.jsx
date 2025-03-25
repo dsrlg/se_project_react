@@ -21,12 +21,9 @@ export default function ClothesSection({
       </div>
       <ul className="cards-section__items">
         {clothingItems.map((item) => (
-          <ItemCard
-            key={item._id}
-            item={item}
-            onCardClick={onCardClick}
-          />
-        ))};
+          <ItemCard key={item._id} item={item} onCardClick={onCardClick} />
+        ))}
+        ;
       </ul>
     </div>
   );

@@ -13,7 +13,7 @@
 
 .card__name {
   position: absolute;
-  margin: 0;
+  /* margin: 0; */
   background-color: #fff;
   border-radius: 4px;
   font-size: 16px;
@@ -26,13 +26,12 @@
   max-height: 24px;
   width: auto;
   height: auto;
-  top:16px
+  top: 16px;
 }
 
 .card__image {
   width: 100%;
-  /* width: 200px; */
   border-radius: 19px;
   object-fit: cover;
-   height: 326px; 
+  height: 326px;
 }
