@@ -20,13 +20,13 @@ export default function ClothesSection({
         </button>
       </div>
       <ul className="cards-section__items">
-        {clothingItems.map((item) => {
+        {clothingItems.map((item) => (
           <ItemCard
             key={item._id}
             item={item}
             onCardClick={onCardClick}
-          />;
-        })}
+          />
+        ))};
       </ul>
     </div>
   );
