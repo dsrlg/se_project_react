@@ -1,30 +1,40 @@
+import "../ModalWithForm/ModalWithForm.css";
+import { Modal } from "../Modal/Modal.jsx";
 import "./ItemModal.css";
 import close from "../../assets/close.png";
+import CurrentUserContext from "../../contexts/CurrentUserContext.js";
+import { useContext } from "react";
 
 function ItemModal({ activeModal, card, handleCloseClick, onDelete }) {
+  const { currentUser } = useContext(CurrentUserContext);
+
+  const canDelete = currentUser && card.owner === currentUser._id;
+
   return (
-    <div className={`modal ${activeModal === "preview" && "modal_opened"}`}>
-      <div className="modal__content modal__content_type_image">
-        <button
-          type="button"
-          onClick={handleCloseClick}
-          className="modal__close"
-        >
-          <img src={close} alt="close" />
-        </button>
-        <img src={card.imageUrl} alt="modal image" className="modal__image" />
+    activeModal === "preview" && (
+      <Modal
+        onClose={handleCloseClick}
+        isOpen={activeModal === "preview"}
+        containerModifier={"modal__content_type_image"}
+        buttonModifier={"modal__close_preview"}
+      >
+        <img src={card.imageUrl} alt={card.name} className="modal__image" />
         <div className="modal__footer">
-          <h2 className="modal__caption">{card.name}</h2>
-          <p className="modal__weather">Weather: {card.weather}</p>
-          <button
-            className="modal__delete_card"
-            onClick={() => onDelete(card._id)}
-          >
-            Delete item
-          </button>
+          <div>
+            <p className="modal__caption">{card.name}</p>
+            <p className="modal__weather">Weather: {card.weather}</p>
+          </div>
+          {canDelete && (
+            <button
+              onClick={() => onDelete(card)}
+              className="modal__delete_btn"
+            >
+              Delete item
+            </button>
+          )}
         </div>
-      </div>
-    </div>
+      </Modal>
+    )
   );
 }
 

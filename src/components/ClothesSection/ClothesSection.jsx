@@ -6,6 +6,7 @@ export default function ClothesSection({
   onCardClick,
   clothingItems,
   handleAddClick,
+  onCardLike,
 }) {
   return (
     <div className="clothes-section">
@@ -19,9 +20,14 @@ export default function ClothesSection({
           +Add New
         </button>
       </div>
-      <ul className="cards-section__items">
-        {clothingItems.map((item) => (
-          <ItemCard key={item._id} item={item} onCardClick={onCardClick} />
+      <ul className="clothes-section__list">
+        {clothingItems.map((filteredCard, index) => (
+          <ItemCard
+            key={filteredCard._id || `item-${index}`}
+            item={filteredCard}
+            onCardClick={onCardClick}
+            onCardLike={onCardLike}
+          />
         ))}
       </ul>
     </div>

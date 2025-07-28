@@ -1,51 +1,76 @@
 .modal__content_type_image {
+  max-width: 498px;
+  max-height: 610px;
+  margin-top: 106px;
+  width: 100%;
+  min-height: unset;
+  border-radius: 20px;
+  background-color: #d9d9d9;
   padding: 0;
-  border-radius: 19px;
-  display: block;
-  overflow: hidden;
 }
+
 .modal__image {
   max-width: 498px;
+  max-height: 498px;
   width: 100%;
-  position: relative;
-  display: block;
-  overflow: auto;
-  border-top-right-radius: 19px;
-  border-top-left-radius: 19px;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+  object-fit: cover;
 }
+
 .modal__caption {
-  border-radius: 19px;
+  border-radius: 16px;
   margin: 0;
-  font-weight: 700;
-  padding: 0 0 12px;
-  font-size: 20px;
 }
-.modal__weather {
-  gap: 12px;
+
+.modal__footer {
+  padding: 20px 32px 32px 32px;
+  display: flex;
+  justify-content: space-between;
+
+  background-color: #ffffff;
+  border-radius: 16px;
+  position: relative;
+}
+
+.modal__close_type_image {
+  background-image: url("/src/images/white-close-icon.svg");
+  background-color: transparent;
+}
+
+.modal__garment-type {
+  height: 24px;
+  background-color: transparent;
+  border: 0px;
+
+  font-family: "Cabinet Grotesk", sans-serif;
   font-weight: 700;
   font-size: 20px;
   line-height: 24px;
-  margin: 0;
-}
-.modal__footer {
-  padding: 20px 32px 32px;
-  position: relative;
-  justify-content: space-between;
-}
-.modal__close {
-  background: url("/src/assets/Union.png") center no-repeat;
-  z-index: 999;
-  border: none;
+  letter-spacing: 0%;
+  color: #ff4d00;
 }
 
-.modal__delete_card {
-  top: 20px;
-  right: 32px;
-  background-color: transparent;
+.modal__weather {
+  margin: 0;
+  font-family: "Cabinet Grotesk", sans-serif;
+  font-size: 16px;
+}
+
+.modal__close_preview {
   position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 24px;
+  height: 24px;
+  background: transparent url("/src/images/white-close-icon.svg") center
+    no-repeat;
+  background-size: contain;
   border: none;
-  color: #ff4d00;
   padding: 0;
-  font-weight: 700;
-  font-size: 20px;
+  cursor: pointer;
+  transition: transform 0.2s ease; /* Add hover effect */
+}
+.modal__close_preview:hover {
+  transform: scale(1.1); /* Slightly enlarge on hover */
 }

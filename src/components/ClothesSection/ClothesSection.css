@@ -1,21 +1,100 @@
-.clothes-section__menu {
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+}
+
+.clothes-section {
   display: flex;
-  gap: 20px;
-  font-size: 20px;
+  flex-direction: column;
+  margin: 20px;
+  margin-top: 0;
+}
+
+.clothes-section__list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-auto-rows: 304px;
+  justify-content: center;
+  justify-items: center;
+  grid-gap: 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+  margin-right: 50px;
+  padding: 0px;
+}
+
+.clothes-section__item {
+  color: #333;
+  background-color: #fff;
+  width: 100px;
+  height: 100px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.clothes-section__item:hover {
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
+  transition: all 0.3s ease;
+}
+
+.clothes-section__item img {
+  max-width: 100%;
+  height: auto;
+}
+
+.clothes-section__header {
+  margin-top: 15px;
+  margin-bottom: 10px;
+  font-weight: bold;
+  font-size: 1.2em;
+  display: flex;
+  gap: 17px;
+  align-items: flex-start;
 }
 
 .clothes-section__button {
-  background-color: transparent;
+  padding: 0;
+  background: none;
+  cursor: pointer;
+  opacity: 0.6;
   border: none;
-  opacity: 60%;
 }
 
-.cards-section__items {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin: 10px;
-  padding: 0;
-  list-style-type: none;
-  gap: 20px;
+.clothes-section__button:hover {
+  opacity: 1;
+}
+
+.clothes-section__text {
+  margin: 0;
+}
+
+
+@media (max-width: 768px) {
+  .clothes-section__list {
+    grid-template-columns: repeat(
+      2,
+      1fr
+    ); /* Fewer columns on smaller screens */
+    gap: 15px; /* Adjust gap */
+  }
+
+  .clothes-section__item {
+    height: 150px; /* Adjust height */
+  }
+}
+
+@media (max-width: 480px) {
+  .clothes-section__list {
+    grid-template-columns: 1fr; /* Single column on very small screens */
+  }
+
+  .clothes-section__item {
+    height: 120px; /* Further adjust height */
+  }
 }

@@ -1,5 +1,5 @@
 import React from "preact/compat";
-import { createContext } from "preact";
+import { createContext } from "react";
 
 const CurrentTemperatureUnitContext = createContext();
 

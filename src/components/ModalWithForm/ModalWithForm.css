@@ -71,13 +71,33 @@
 }
 
 .modal__submit {
-  background: rgba(0, 0, 0, 0.3);
-  margin-right: 344px;
-  color: white;
-  font-weight: 700;
   width: 124px;
   height: 36px;
-  font-family: "Cabinet Grotesk", "Times New Roman", Times, serif;
+  font-size: 16px;
+  line-height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgb(0, 0, 0);
+  border-radius: 4px;
+  border: none;
+  transition: visibility, background-color 0.3s;
+  margin-top: 10px;
+  color: #ffffff;
+}
+
+.modal__submit:hover {
+  opacity: 60%;
+}
+
+.modal__submit[disabled] {
+  background-color: #999;
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.modal__submit[disabled]:hover {
+  opacity: 0.6; /* Keep the same opacity as disabled state */
 }
 
 .modal__legend {

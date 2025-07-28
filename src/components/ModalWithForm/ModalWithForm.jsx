@@ -1,34 +1,47 @@
 import "./ModalWithForm.css";
 import close from "../../assets/close.png";
 
+import React from "react";
+import {Modal} from "../Modal/Modal.jsx";
 function ModalWithForm({
   children,
   buttonText,
   titleText,
-  activeModal,
   isOpen,
   handleCloseClick,
   onSubmit,
+  isLoading,
+  disabled,
+  secondaryButtonText,
+  secondaryButtonAction,
 }) {
   return (
-    <div className={`modal ${isOpen && "modal_opened"}`}>
-      <div className="modal__content">
+    isOpen && (
+      <Modal onClose={handleCloseClick} isOpen={isOpen}>
         <h2 className="modal__title">{titleText}</h2>
-        <button
-          type="button"
-          onClick={handleCloseClick}
-          className="modal__close"
-        ></button>
-        <form 
-        onSubmit={onSubmit}
-        className="modal__form">
+        <form onSubmit={onSubmit} className="modal__form">
           {children}
-          <button type="submit" className="modal__submit">
-            {buttonText}
-          </button>
+          <div className="modal__buttons-container">
+            <button
+              type="submit"
+              className="modal__submit"
+              disabled={isLoading || disabled}
+            >
+              {buttonText}
+            </button>
+            {secondaryButtonText && (
+              <button
+                type="button"
+                className="modal__secondary-btn"
+                onClick={secondaryButtonAction}
+              >
+                {secondaryButtonText}
+              </button>
+            )}
+          </div>
         </form>
-      </div>
-    </div>
+      </Modal>
+    )
   );
 }
 
