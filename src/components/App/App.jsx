@@ -23,6 +23,7 @@ import CurrentUserContext from "../../contexts/CurrentUserContext";
 
 import api from "../../utils/api.js";
 import { ConfirmationDeleteModal } from "../ConfirmationDeleteModal/ConfirmationDeleteModal";
+import { h } from "preact";
 
 function App() {
   const [weatherData, setWeatherData] = useState({
@@ -79,8 +80,7 @@ function App() {
   };
   const handleUpdateProfile = (updatedData) => {
     const token = localStorage.getItem("jwt");
-    setIsLoading(true); // Add loading state
-
+    const makeRequest = () => 
     api
       .updateProfile({
         ...updatedData,
@@ -90,13 +90,8 @@ function App() {
         setCurrentUser(updatedUser);
         closeActiveModal();
         setErrorMessage("");
-      })
-      .catch((error) => {
-        setErrorMessage(error.message);
-      })
-      .finally(() => {
-        setIsLoading(false); // Reset loading state
       });
+    handleSubmit(makeRequest , closeActiveModal);
   };
 
   const handleCardLike = ({ _id, isLiked }) => {
@@ -106,8 +101,13 @@ function App() {
     likeRequest(_id, token)
       .then((updatedCard) => {
         setClothingItems((cards) =>
-          cards.map((item) => (item._id === _id ? updatedCard : item))
+          cards.map((item) => (item._id === _id ? (isValid(updatedCard) ? updatedCard.data : likeAppend(item)) : item))
         );
+
+        function likeAppend(item) {
+          item.likes.push(updatedCard.itemId);
+          return item;
+        }
       })
       .catch((err) => {
         console.error(err);
@@ -118,7 +118,12 @@ function App() {
     setCurrentUser(null);
     localStorage.removeItem("jwt");
   };
-
+  function isValid(updatedCard) {
+    if (updatedCard && updatedCard.data) {
+      return true;
+    }
+    return false;
+  }
   const handleEditProfile = () => {
     setActiveModal("edit-profile");
   };
@@ -128,6 +133,7 @@ function App() {
 
   const handleItemModalSubmit = ({ name, imageUrl, weather }) => {
     const token = localStorage.getItem("jwt");
+    const makeRequest = () => 
     api
       .addItem({ name, imageUrl, weather, token })
       .then((newCard) => {
@@ -137,9 +143,8 @@ function App() {
           { name, imageUrl: imageUrl, weather, _id: newCard._id },
           ...clothingItems,
         ]);
-        closeActiveModal();
-      })
-      .catch(console.error);
+      });
+    handleSubmit(makeRequest, closeActiveModal);
   };
 
   useEffect(() => {
@@ -230,7 +235,7 @@ function App() {
   };
 
   const handleRegister = ({ email, password, name, avatar }) => {
-    setIsLoading(true);
+    const makeRequest = () =>
     api
       .register({ email, password, name, avatar })
       .then(() => {
@@ -249,13 +254,12 @@ function App() {
             err.message || "Registration failed. Please try again."
           );
         }
-      })
-      .finally(() => {
-        setIsLoading(false);
       });
+    handleSubmit(makeRequest, closeActiveModal);
   };
 
   const handleLogin = ({ email, password }) => {
+    const makeRequest = () =>
     api
       .login({ email, password })
       .then((res) => {
@@ -275,6 +279,7 @@ function App() {
         console.error(err);
         setErrorMessage(err.message || "An error occurred during login");
       });
+      handleSubmit(makeRequest, closeActiveModal);
   };
 
   useEffect(() => {

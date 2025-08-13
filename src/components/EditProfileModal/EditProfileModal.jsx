@@ -1,69 +1,58 @@
 import { useContext, useEffect } from "react";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import CurrentUserContext from "../../contexts/CurrentUserContext";
-import { useFormAndValidation } from "../../hooks/useFormAndValidation";
 
+import { useState } from "react";
 function EditProfileModal({ isOpen, onSubmit, handleCloseClick }) {
-  const { currentUser } = useContext(CurrentUserContext);
-  const { values, handleChange, resetForm, errors, isValid, setValues } =
-    useFormAndValidation({
-      name: currentUser?.name || "",
-      avatar: currentUser?.avatar || "",
-    });
+  const currentUser = useContext(CurrentUserContext);
+
+  const [name, setName] = useState("");
+  const [avatarUrl, setAvatarUrl] = useState("");
 
   useEffect(() => {
-    if (isOpen) {
-      resetForm();
-      setValues({
-        name: currentUser?.name || "",
-        avatar: currentUser?.avatar || "",
-      });
-    }
-  }, [isOpen, currentUser, resetForm, setValues]); // Update the values when currentUser changes or modal opens]
+    setName(currentUser.currentUser?.name || "");
+    setAvatarUrl(currentUser.currentUser?.avatar || "");
+  }, [isOpen, currentUser]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (isValid) {
-      onSubmit(values);
-    }
+    onSubmit({ name, avatar: avatarUrl });
   };
 
   return (
     <ModalWithForm
-      title="Change profile data"
+      titleText="Change profile data"
       buttonText="Save changes"
       isOpen={isOpen}
       handleCloseClick={handleCloseClick}
       onSubmit={handleSubmit}
     >
       <label className="modal__label">
-        Name*
+        Name{" "}
         <input
           className="modal__input"
           type="text"
-          name="name"
           placeholder="Name"
-          minLength="2"
-          maxLength="40"
-          value={values.name || ""}
+          onChange={(e) => {
+            setName(e.target.value);
+          }}
+          value={name}
           required
-          onChange={handleChange}
         />
-        {errors.name && <p className="modal__error">{errors.name}</p>}
       </label>
 
       <label className="modal__label">
-        Avatar*
+        Avatar{" "}
         <input
           className="modal__input"
           type="url"
-          name="avatar"
           placeholder="Avatar URL"
-          value={values.avatar || ""}
-          onChange={handleChange}
+          onChange={(e) => {
+            setAvatarUrl(e.target.value);
+          }}
+          value={avatarUrl}
           required
         />
-        {errors.avatar && <p className="modal__error">{errors.avatar}</p>}
       </label>
     </ModalWithForm>
   );

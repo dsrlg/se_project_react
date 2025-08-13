@@ -10,7 +10,7 @@ export default function ClothesSection({
 }) {
   return (
     <div className="clothes-section">
-      <div className="clothes-section__menu">
+      <div className="clothes-section__header">
         <p className="clothes-section__text">Your Items</p>
         <button
           className="clothes-section__button"

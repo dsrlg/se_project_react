@@ -1,17 +1,19 @@
 import "./ItemCard.css";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import CurrentUserContext from "../../contexts/CurrentUserContext";
 
 function ItemCard({ item, onCardClick, onCardLike }) {
   const { currentUser } = useContext(CurrentUserContext);
   const token = localStorage.getItem("jwt");
-  const isLiked =
-    currentUser && item.likes?.some((id) => id === currentUser._id);
+  const [isLiked, setIsLiked] = useState(
+    currentUser?._id && item.likes?.includes(currentUser._id)
+  );
   const handleCardClick = () => {
     onCardClick(item);
   };
 
   const handleLikeClick = () => {
+    setIsLiked(!isLiked);
     onCardLike({ _id: item._id, isLiked });
   };
   return (
@@ -27,7 +29,7 @@ function ItemCard({ item, onCardClick, onCardLike }) {
         {token && (
           <button
             type="button"
-            className={`card__like-button ${  
+            className={`card__like-button ${
               isLiked ? "card__like-button_is-active" : ""
             }`}
             onClick={handleLikeClick}

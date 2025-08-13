@@ -21,14 +21,7 @@ export default function AddItemModal({
     e.preventDefault();
     if (isValid && Object.values(errors).every((error) => error === "")) {
       onItemModalSubmit(values)
-        .then(() => {
-          // Reset form values only after successful submission
-          resetForm();
-        })
-        .catch((err) => {
-          // Handle any errors, such as displaying a message
-          console.error(err);
-        });
+        ;
     }
   };
 
