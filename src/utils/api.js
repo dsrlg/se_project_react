@@ -39,7 +39,7 @@ function removeCardLike(id, token) {
   }).then((res) => checkResponse(res));
 }
 function register({ email, password, name, avatar }) {
-  return request(`${baseUrl}/signup`, {
+  return fetch(`${baseUrl}/signup`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

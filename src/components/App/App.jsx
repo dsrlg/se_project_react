@@ -100,8 +100,9 @@ function App() {
 
     likeRequest(_id, token)
       .then((updatedCard) => {
+        console.log("cars:", cards);
         setClothingItems((cards) =>
-          cards.map((item) => (item._id === _id ? (isValid(updatedCard) ? updatedCard.data : likeAppend(item)) : item))
+          cards.map((item) => (item._id === _id ? (isValid(updatedCard) ? updatedCard.data : likeAppend(item)) : (isValid(item) ? item.data : item)))
         );
 
         function likeAppend(item) {
@@ -139,10 +140,13 @@ function App() {
       .then((newCard) => {
         // debugger;
         // const newId = Math.max(...clothingItems.map((item) => item._id)) + 1;
-        setClothingItems([
-          { name, imageUrl: imageUrl, weather, _id: newCard._id },
-          ...clothingItems,
-        ]);
+        setClothingItems([{
+          name,
+          imageUrl,
+          weather,
+          _id: newCard.data?._id
+        }, ...clothingItems]);
+
       });
     handleSubmit(makeRequest, closeActiveModal);
   };
